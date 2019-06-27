@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+     <script>
+    $(document).ready(function(){
+        console.log($("form input")[0]);
+      $("form input").on("change",function(){
+        $("#result").text("please wait while processing ...  ");
+        var formData = new FormData($("form")[0]);
+            var file = $(this)[0].files[0];
+          formData.append('file', file);
+
+          var xhr = new XMLHttpRequest();
+          // Add any event handlers here...
+          xhr.open('POST', $("form")[0].getAttribute('action'), true);
+          xhr.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+              console.log(this.response,this.responseText);
+                $("#result").text("Recognized test is : "+JSON.parse(this.responseText).text);
+              }
+            };
+          xhr.send(formData);
+
+          return false; // To avoid actual submission of the form
+        });
+    });
+    </script>
+</head>
+<body>
+    <form id="the-form" action="/get_string/" enctype="multipart/form-data">
+      <input name="file" type="file">
+    </form>
+    <div id="result"></div>
+</body>
+</html>

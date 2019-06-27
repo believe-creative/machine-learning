@@ -1,0 +1,10 @@
+.idea/*
+.vagrant/*
+learning/animals/*
+learning/characters/*
+learning/withoutKeras/data/*.png
+learning/output/*
+learn/withoutKeras/data/*.png
+learn/withoutKeras/model/*.zip
+learning/withoutKeras/model/*.zip
+
