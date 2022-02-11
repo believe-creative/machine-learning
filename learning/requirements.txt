@@ -20,7 +20,7 @@ mock==3.0.5
 numpy==1.16.4
 opencv-contrib-python==4.1.0.25
 Pillow==5.4.1
-protobuf==3.8.0
+protobuf==3.15.0
 pycurl==7.19.3
 pydot==1.4.1
 pygobject==3.12.0
